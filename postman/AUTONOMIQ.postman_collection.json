@@ -1,0 +1,579 @@
+{
+  "info": {
+    "name": "AUTONOMIQ API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:8000"
+    },
+    {
+      "key": "deal_id",
+      "value": "1"
+    },
+    {
+      "key": "order_id",
+      "value": ""
+    }
+  ],
+  "item": [
+    {
+      "name": "Health",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/api/health",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "health"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Config",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/api/config",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "config"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Businesses",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/api/businesses",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "businesses"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Dashboard (retailer)",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/api/dashboard?business_id=1",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "dashboard"
+          ],
+          "query": [
+            {
+              "key": "business_id",
+              "value": "1"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Products + inventory assessment",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/api/products?business_id=1",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "products"
+          ],
+          "query": [
+            {
+              "key": "business_id",
+              "value": "1"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Demand forecast",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/api/forecast?business_id=1&product_id=1",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "forecast"
+          ],
+          "query": [
+            {
+              "key": "business_id",
+              "value": "1"
+            },
+            {
+              "key": "product_id",
+              "value": "1"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Pricing recommendations",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/api/pricing?business_id=1",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "pricing"
+          ],
+          "query": [
+            {
+              "key": "business_id",
+              "value": "1"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Supplier ranking",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/api/suppliers/rank?sku=HP-100&qty=100&max_price=60&exclude=1",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "suppliers",
+            "rank"
+          ],
+          "query": [
+            {
+              "key": "sku",
+              "value": "HP-100"
+            },
+            {
+              "key": "qty",
+              "value": "100"
+            },
+            {
+              "key": "max_price",
+              "value": "60"
+            },
+            {
+              "key": "exclude",
+              "value": "1"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Digital twin",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/api/twin",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "twin"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"business_id\": 1,\n  \"price_change\": -10,\n  \"stock_change\": 20,\n  \"cost_change\": 0,\n  \"horizon\": 30\n}"
+        }
+      }
+    },
+    {
+      "name": "Natural-language command",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/api/command",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "command"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"business_id\": 1,\n  \"text\": \"My inventory is running low. Find the best supplier, negotiate a good deal, maintain at least a 25% profit margin and prepare the payment.\"\n}"
+        }
+      }
+    },
+    {
+      "name": "Negotiate directly",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/api/negotiate",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "negotiate"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"business_id\": 1,\n  \"sku\": \"HP-100\",\n  \"qty\": 100,\n  \"min_margin\": 0.25\n}"
+        }
+      }
+    },
+    {
+      "name": "Deals",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/api/deals?business_id=1",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "deals"
+          ],
+          "query": [
+            {
+              "key": "business_id",
+              "value": "1"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Deal detail (set deal_id)",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/api/deals/{{deal_id}}",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "deals",
+            "{{deal_id}}"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Approve deal",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/api/deals/{{deal_id}}/approve",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "deals",
+            "{{deal_id}}",
+            "approve"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Create PayPal order",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/api/paypal/orders",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "paypal",
+            "orders"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"deal_id\": \"{{deal_id}}\"\n}"
+        }
+      }
+    },
+    {
+      "name": "Capture PayPal order",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/api/paypal/orders/{{order_id}}/capture",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "paypal",
+            "orders",
+            "{{order_id}}",
+            "capture"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Webhook (sample)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/api/paypal/webhook",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "paypal",
+            "webhook"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"id\": \"WH-TEST-1\",\n  \"event_type\": \"PAYMENT.CAPTURE.COMPLETED\",\n  \"resource\": {\n    \"id\": \"CAP-TEST\",\n    \"custom_id\": \"{{deal_id}}\",\n    \"status\": \"COMPLETED\"\n  }\n}"
+        }
+      }
+    },
+    {
+      "name": "Refund deal",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/api/deals/{{deal_id}}/refund",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "deals",
+            "{{deal_id}}",
+            "refund"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Transactions",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/api/transactions?business_id=1",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "transactions"
+          ],
+          "query": [
+            {
+              "key": "business_id",
+              "value": "1"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Decision trail",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/api/decisions?business_id=1",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "decisions"
+          ],
+          "query": [
+            {
+              "key": "business_id",
+              "value": "1"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Reset demo data",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/api/reset",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "reset"
+          ]
+        }
+      }
+    }
+  ]
+}

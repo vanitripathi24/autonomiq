@@ -1,0 +1,35 @@
+services:
+  - type: web
+    name: autonomiq-api
+    runtime: python
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.3
+      - key: CORS_ORIGINS
+        value: https://autonomiq-web.onrender.com   # your static site URL
+      - key: DATABASE_URL
+        sync: false   # optional: Supabase/Postgres URL (postgresql+psycopg2://...)
+      - key: PAYPAL_CLIENT_ID
+        sync: false
+      - key: PAYPAL_CLIENT_SECRET
+        sync: false
+      - key: PAYPAL_WEBHOOK_ID
+        sync: false
+      - key: GEMINI_API_KEY
+        sync: false
+  - type: web
+    name: autonomiq-web
+    runtime: static
+    rootDir: frontend
+    buildCommand: npm install && npm run build
+    staticPublishPath: dist
+    envVars:
+      - key: VITE_API_URL
+        value: https://autonomiq-api.onrender.com   # your API URL
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html

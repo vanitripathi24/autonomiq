@@ -1,0 +1,27 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Schibsted Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --color-paper: #edf0f5;
+  --color-ink: #101b33;
+  --color-muted: #5b6784;
+  --color-line: #d8dee9;
+  --color-cobalt: #0b3d91;
+  --color-sky: #1f6fe9;
+  --color-tint: #e6eefb;
+  --color-amber: #c97800;
+  --color-sand: #fbf1dc;
+  --color-gain: #0e8a5f;
+  --color-mint: #e1f4ec;
+  --color-loss: #c2362b;
+  --color-rose: #fbe7e4;
+}
+
+html, body, #root { height: 100%; }
+body { margin: 0; background: var(--color-paper); color: var(--color-ink); font-family: var(--font-sans); font-variant-numeric: tabular-nums; -webkit-font-smoothing: antialiased; }
+button, input, select, textarea { font-family: inherit; }
+:focus-visible { outline: 2px solid var(--color-sky); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
+@keyframes rise { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+.rise { animation: rise .35s ease both; }
+input[type=range] { accent-color: var(--color-cobalt); width: 100%; }
