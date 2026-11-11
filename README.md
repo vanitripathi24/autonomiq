@@ -55,6 +55,8 @@ Set `GEMINI_API_KEY` (or `OPENAI_API_KEY`). The LLM then classifies commands, wr
 
 `render.yaml` defines an API web service and a static site. Set `VITE_API_URL` on the site to the API URL, and `CORS_ORIGINS` on the API to the site URL. Import `postman/AUTONOMIQ.postman_collection.json` into Postman and set `base_url`.
 
+The API uses Render's free instance plan. Free web services can take about a minute to wake after inactivity, and their local SQLite data is lost when they restart or spin down. Set `DATABASE_URL` to a persistent PostgreSQL database if demo data must survive.
+
 ## Demo script (5 minutes)
 
 1. Sign in as **VoltRetail Electronics**. The dashboard flags Wireless Headphones (about 2 days of stock) and Gaming Mouse (20% margin).
