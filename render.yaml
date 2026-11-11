@@ -10,7 +10,7 @@ services:
       - key: PYTHON_VERSION
         value: 3.12.3
       - key: CORS_ORIGINS
-        value: https://autonomiq-web.onrender.com   # your static site URL
+        value: https://autonomiq-web-l1io.onrender.com
       - key: DATABASE_URL
         sync: false   # optional: Supabase/Postgres URL (postgresql+psycopg2://...)
       - key: PAYPAL_CLIENT_ID
@@ -29,7 +29,7 @@ services:
     staticPublishPath: dist
     envVars:
       - key: VITE_API_URL
-        value: https://autonomiq-api.onrender.com   # your API URL
+        value: https://autonomiq-api-nc27.onrender.com
     routes:
       - type: rewrite
         source: /*
